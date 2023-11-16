@@ -1,5 +1,4 @@
-// Package uule provides a simple and efficient library for generating URL-encoded
-// Unicode Location Elements (UULE) in Go.
+// A simple and efficient UULE (URL-encoded Unicode Location Element) generator library for Go.
 package uule
 
 import (
