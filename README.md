@@ -35,7 +35,10 @@ import (
 
 func main() {
 	// Generate a UULE by passing a city, state, and country
-	uuleEncoded := uule.CreateUULE("New York", "New York", "United States")
+	uuleEncoded, err := uule.CreateUULE("New York", "New York", "United States")
+	if err != nil {
+		panic(err)
+	}
 	fmt.Println(uuleEncoded) // Output -> w+CAIQICIfTmV3IFlvcmssTmV3IFlvcmssVW5pdGVkIFN0YXRlcw==
 
 	// You can also use uule.CreateUULEFromString("New York,New York,United States")
