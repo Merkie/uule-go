@@ -11,7 +11,12 @@ func TestEncodeUULE(t *testing.T) {
 		t.Error("Region did not set correctly")
 	}
 
-	if uule.Encode() != "w+CAIQICIbSG91c3RvbixUZXhhcyxVbml0ZWQgU3RhdGVz" {
+	encodedUule, err := uule.Encode()
+	if err != nil {
+		t.Error("Houston, Texas, United States did not encode correctly")
+	}
+
+	if encodedUule != "w+CAIQICIbSG91c3RvbixUZXhhcyxVbml0ZWQgU3RhdGVz" {
 		t.Error("Houston, Texas, United States did not encode correctly")
 	}
 }

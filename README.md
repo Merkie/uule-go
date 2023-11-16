@@ -10,8 +10,7 @@ A simple and efficient UULE (URL-encoded Unicode Location Element) generator lib
 ## Features
 
 - **Easy UULE Generation**: Quickly generate UULE parameters by specifying city, state, and country.
-- **Canonical Name Lookup**: Convert a location into its official UULE canonical name as recognized by Google.
-- **Lightweight and Fast**: Minimal dependencies ensuring fast and efficient performance.
+- **Lightweight and Fast**: Designed with performance in mind, the library has a minimal footprint, ensuring it doesn't bloat your application.
 
 ## Installation
 
@@ -38,10 +37,6 @@ func main() {
 	// Generate a UULE by passing a city, state, and country
 	uuleEncoded := uule.CreateUULE("New York", "New York", "United States").Encode()
 	fmt.Println(uuleEncoded) // Output -> w+CAIQICIfTmV3IFlvcmssTmV3IFlvcmssVW5pdGVkIFN0YXRlcw==
-
-	// Look up a location to get the official UULE canonical name from Google
-	uuleCanonical := uule.CreateUULE("Houston", "TX", "USA").LookupCanonicalName()
-	fmt.Println(uuleCanonical.CanonicalName) // Output -> Houston,Texas,United States
 }
 ```
 
@@ -59,4 +54,4 @@ Special thanks to [petrpatek](https://github.com/petrpatek) for sharing his work
 
 ---
 
-*Note: This project is not affiliated with Google LLC.*
+_Note: This project is not affiliated with Google LLC._

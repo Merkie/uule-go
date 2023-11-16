@@ -1,3 +1,5 @@
+// Package uule provides a simple and efficient library for generating URL-encoded
+// Unicode Location Elements (UULE) in Go.
 package uule
 
 import (
@@ -5,6 +7,8 @@ import (
 	"fmt"
 )
 
+// UULEParams represents the core parameters that constitute a UULE string.
+// It includes the city, region, country, and an optional canonical name.
 type UULEParams struct {
 	City          string
 	Region        string
@@ -12,7 +16,9 @@ type UULEParams struct {
 	CanonicalName string
 }
 
-func CreateUULE(city string, region string, country string) *UULEParams {
+// CreateUULE initializes a new UULEParams object with the specified city, region,
+// and country. This object can then be used to generate a UULE string.
+func CreateUULE(city, region, country string) *UULEParams {
 	return &UULEParams{
 		City:          city,
 		Region:        region,
@@ -21,21 +27,28 @@ func CreateUULE(city string, region string, country string) *UULEParams {
 	}
 }
 
-func (uule *UULEParams) Encode() string {
-	location := ""
+// Encode converts the UULEParams object into an encoded UULE string. The method
+// first constructs a comma-separated string from the city, region, and country fields,
+// or uses the CanonicalName if provided. This string is then base64-encoded.
+//
+// The method also calculates a length prefix, which is a single character representing
+// the length of the encoded location string minus 4. The final UULE string is composed
+// of a standard UULE prefix, the length prefix, and the encoded location.
+//
+// Returns the complete UULE string or an error if the length prefix cannot be determined.
+func (uule *UULEParams) Encode() (string, error) {
+	location := uule.City + "," + uule.Region + "," + uule.Country
 	if uule.CanonicalName != "" {
 		location = uule.CanonicalName
-	} else {
-		location = uule.City + "," + uule.Region + "," + uule.Country
 	}
 
 	encodedLocation := base64.StdEncoding.EncodeToString([]byte(location))
 
-	lengthPrefix, exists := LengthSecret[len(location)]
+	lengthPrefix, exists := getLengthPrefix(len(location))
 	if !exists {
-		fmt.Printf("No length prefix found for length %d\n", len(location))
-		return ""
+		return "", fmt.Errorf("no length prefix found for length %d", len(location))
 	}
 
-	return Identifier + lengthPrefix + encodedLocation
+	// "w+CAIQICI" is the standard prefix for all UULEs
+	return "w+CAIQICI" + lengthPrefix + encodedLocation, nil
 }
