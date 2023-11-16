@@ -50,7 +50,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-Special thanks to [petrpatek](https://github.com/petrpatek) for sharing his work on [petrpatek](https://github.com/petrpatek/create-uule).
+Special thanks to [petrpatek](https://github.com/petrpatek) for sharing his work on [create-uule](https://github.com/petrpatek/create-uule).
 
 ---
 
