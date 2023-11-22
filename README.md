@@ -6,17 +6,12 @@
 
 A simple and efficient UULE (URL-encoded Unicode Location Element) generator library for Go. This library allows you to create UULE parameters for use in location-specific Google searches.
 
-## Features
-
-- **Easy UULE Generation**: Quickly generate UULE parameters by specifying city, state, and country.
-- **Lightweight and Fast**: Designed with performance in mind, the library has a minimal footprint, ensuring it doesn't bloat your application.
-
 ## Installation
 
 To install the UULE Generator library, use the following command:
 
 ```bash
-go get -u "github.com/merkie/uule-go"
+go get -u "github.com/merkie/uule-go@latest"
 ```
 
 ## Usage
@@ -33,14 +28,20 @@ import (
 )
 
 func main() {
-	// Generate a UULE by passing a city, state, and country
-	uuleEncoded, err := uule.CreateUULE("New York", "New York", "United States")
-	if err != nil {
-		panic(err)
-	}
-	fmt.Println(uuleEncoded) // Output -> w+CAIQICIfTmV3IFlvcmssTmV3IFlvcmssVW5pdGVkIFN0YXRlcw==
+	// Create a UULE string for New York, New York, United States using location parameters
+	nyUule, _ := uule.CreateUULE("New York", "New York", "United States")
+	fmt.Println(nyUule) // w+CAIQICIfTmV3IFlvcmssTmV3IFlvcmssVW5pdGVkIFN0YXRlcw==
 
-	// You can also use uule.CreateUULEFromString("New York,New York,United States")
+	// Create a UULE string for Austin, Texas, United States using location string
+	austinUule, _ := uule.CreateUULEFromString("Austin,Texas,United States")
+	fmt.Println(austinUule) // w+CAIQICIaQXVzdGluLFRleGFzLFVuaXRlZCBTdGF0ZXM=
+
+	// Decode UULE strings
+	decodedNyUule, _ := uule.DecodeUULEString("w+CAIQICIfTmV3IFlvcmssTmV3IFlvcmssVW5pdGVkIFN0YXRlcw==")
+	fmt.Println(decodedNyUule) // New York,New York,United States
+
+	decodedAustinUule, _ := uule.DecodeUULEString("w+CAIQICIaQXVzdGluLFRleGFzLFVuaXRlZCBTdGF0ZXM=")
+	fmt.Println(decodedAustinUule) // Austin,Texas,United States
 }
 ```
 
