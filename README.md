@@ -59,4 +59,4 @@ Special thanks to [petrpatek](https://github.com/petrpatek) for sharing his work
 
 ---
 
-_Note: This project is not affiliated with Google LLC._
+_Note: This project is not affiliated with Google LLC or Bright Data LLC._
