@@ -25,3 +25,14 @@ func TestCreateUULEFromLocationString(t *testing.T) {
 		t.Error("Houston,Texas,United States did not encode correctly")
 	}
 }
+
+func TestDecodeUULEString(t *testing.T) {
+	location, err := DecodeUULEString("w+CAIQICIbSG91c3RvbixUZXhhcyxVbml0ZWQgU3RhdGVz")
+	if err != nil {
+		t.Error("Houston,Texas,United States did not decode correctly")
+	}
+
+	if location != "Houston,Texas,United States" {
+		t.Error("Houston,Texas,United States did not decode correctly")
+	}
+}
