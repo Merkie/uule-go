@@ -1,6 +1,5 @@
 # uule-go
 
-[![Go Version](https://img.shields.io/badge/Go-1.21.3-blue)](https://golang.org)
 [![GoDoc](https://pkg.go.dev/badge/github.com/merkie/uule-go.svg)](https://pkg.go.dev/github.com/merkie/uule-go)
 [![Go Report Card](https://goreportcard.com/badge/github.com/merkie/uule-go)](https://goreportcard.com/report/github.com/merkie/uule-go)
 ![License](https://img.shields.io/badge/license-MIT-green)
