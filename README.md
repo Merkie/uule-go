@@ -55,4 +55,6 @@ Special thanks to [petrpatek](https://github.com/petrpatek) for sharing his work
 
 ---
 
-_Note: This project is not affiliated with Google LLC._
+## Legal Disclaimer
+
+This project is an independent, community-driven effort and is not officially affiliated with, endorsed by, or in any way connected to Google or any of its subsidiaries or affiliates. The name Google and any related trademarks are the property of their respective owners and are used here for identification purposes only. This project is developed under the MIT License and is not associated with any official offerings from these entities.
