@@ -8,15 +8,11 @@ A simple and efficient UULE (URL-encoded Unicode Location Element) generator lib
 
 ## Installation
 
-To install the UULE Generator library, use the following command:
-
 ```bash
 go get -u "github.com/merkie/uule-go@latest"
 ```
 
 ## Usage
-
-Here's a quick example to get you started:
 
 ```go
 package main
